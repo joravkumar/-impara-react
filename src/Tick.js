@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import UserInfo from "./UserInfo";
 
 // function Tick() {
 //   return (
@@ -15,16 +16,32 @@ class Tick extends Component {
     this.state = {
       name: "Jorav",
       age: 23,
+      counter: 0,
     };
+    // setInterval(() => {
+    //   this.setState({
+    //     counter: this.state.counter + 1,
+    //   });
+    // }, 1000);
+    // this.handleClick = this.handleClick.bind(this);
   }
+
+  handleClick = () => {
+    this.setState({
+      name: "Booom Boom",
+      age: "26",
+    });
+  };
 
   render() {
     return (
       <div>
-        <h1>Hello, world!</h1>
-        <h2>
-          This is {this.state.name} and I am {this.state.age} years old.
-        </h2>
+        <UserInfo
+          name={this.state.name}
+          age={this.state.age}
+          counter={this.state.counter}
+        />
+        <button onClick={this.handleClick}>Click me</button>
       </div>
     );
   }
